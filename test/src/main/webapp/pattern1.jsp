@@ -14,15 +14,13 @@
         <p>「好きな偉人」や「知っている偉人」の名前を登録して、<br>自分だけの偉人図鑑を作っちゃおう!!</p><br><br>
         <h1>偉人の名前を入力してください</h1>
     
-        <form action="./Insert" method="post">
-            <label>
-                <input type="text" name="ijin" placeholder="例)豊臣秀吉">
-            </label>
-            <input type="submit" value="登録"><br>
-            <div>
-                <p>偉人画像選択：<input type="file"></p>
-            </div>
-        </form><br><br>
+	<form action="./Insert" method="post" onsubmit="return validateForm()">
+	<label>
+	<input type="text" name="ijin" id="ijinInput" placeholder="例)豊臣秀吉">
+	</label>
+	<input type="submit" value="登録"><br>
+	</form>
+	<br><br>
 
         <div class="box_css">
             <h3>---💡ヒント💡---</h3>
@@ -180,4 +178,15 @@
         <div class="chalk2"></div>
     </div>
 </body>
+<script>
+   function validateForm() {
+       var ijinInput = document.getElementById("ijinInput").value.trim();
+       if (ijinInput === "") {
+           alert("名前を入力してください。");
+           return false; // フォームのサブミットを中止
+       }
+       // 他の必要な入力チェックがあればここに追加
+       return true; // フォームをサブミット
+   }
+</script>
 </html>
